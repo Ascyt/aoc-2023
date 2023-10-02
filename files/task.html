@@ -1,21 +1,34 @@
-<h2>--- Day 12: Hill Climbing Algorithm ---</h2><p>You try contacting the Elves using your <span title="When you look up the specs for your handheld device, every field just says &quot;plot&quot;.">handheld device</span>, but the river you're following must be too low to get a decent signal.</p>
-<p>You ask the device for a heightmap of the surrounding area (your puzzle input). The heightmap shows the local area from above broken into a grid; the elevation of each square of the grid is given by a single lowercase letter, where <code>a</code> is the lowest elevation, <code>b</code> is the next-lowest, and so on up to the highest elevation, <code>z</code>.</p>
-<p>Also included on the heightmap are marks for your current position (<code>S</code>) and the location that should get the best signal (<code>E</code>). Your current position (<code>S</code>) has elevation <code>a</code>, and the location that should get the best signal (<code>E</code>) has elevation <code>z</code>.</p>
-<p>You'd like to reach <code>E</code>, but to save energy, you should do it in <em>as few steps as possible</em>. During each step, you can move exactly one square up, down, left, or right. To avoid needing to get out your climbing gear, the elevation of the destination square can be <em>at most one higher</em> than the elevation of your current square; that is, if your current elevation is <code>m</code>, you could step to elevation <code>n</code>, but not to elevation <code>o</code>. (This also means that the elevation of the destination square can be much lower than the elevation of your current square.)</p>
-<p>For example:</p>
-<pre><code><em>S</em>abqponm
-abcryxxl
-accsz<em>E</em>xk
-acctuvwj
-abdefghi
+<h2>--- Day 3: Crossed Wires ---</h2><p>The gravity assist was successful, and you're well on your way to the Venus refuelling station.  During the rush back on Earth, the fuel management system wasn't completely installed, so that's next on the priority list.</p>
+<p>Opening the front panel reveals a jumble of wires. Specifically, <em>two wires</em> are connected to a central port and extend outward on a grid.  You trace the path each wire takes as it leaves the central port, one wire per line of text (your puzzle input).</p>
+<p>The wires <span title="A jumble of twisty little wires, all alike.">twist and turn</span>, but the two wires occasionally cross paths. To fix the circuit, you need to <em>find the intersection point closest to the central port</em>. Because the wires are on a grid, use the <a href="https://en.wikipedia.org/wiki/Taxicab_geometry">Manhattan distance</a> for this measurement. While the wires do technically cross right at the central port where they both start, this point does not count, nor does a wire count as crossing with itself.</p>
+<p>For example, if the first wire's path is <code>R8,U5,L5,D3</code>, then starting from the central port (<code>o</code>), it goes right <code>8</code>, up <code>5</code>, left <code>5</code>, and finally down <code>3</code>:</p>
+<pre><code>...........
+...........
+...........
+....+----+.
+....|....|.
+....|....|.
+....|....|.
+.........|.
+.o-------+.
+...........
 </code></pre>
-<p>Here, you start in the top-left corner; your goal is near the middle. You could start by moving down or right, but eventually you'll need to head toward the <code>e</code> at the bottom. From there, you can spiral around to the goal:</p>
-<pre><code>v..v&lt;&lt;&lt;&lt;
-&gt;v.vv&lt;&lt;^
-.&gt;vv&gt;E^^
-..v&gt;&gt;&gt;^^
-..&gt;&gt;&gt;&gt;&gt;^
+<p>Then, if the second wire's path is <code>U7,R6,D4,L4</code>, it goes up <code>7</code>, right <code>6</code>, down <code>4</code>, and left <code>4</code>:</p>
+<pre><code>...........
+.+-----+...
+.|.....|...
+.|..+--X-+.
+.|..|..|.|.
+.|.-<em>X</em>--+.|.
+.|..|....|.
+.|.......|.
+.o-------+.
+...........
 </code></pre>
-<p>In the above diagram, the symbols indicate whether the path exits each square moving up (<code>^</code>), down (<code>v</code>), left (<code>&lt;</code>), or right (<code>&gt;</code>). The location that should get the best signal is still <code>E</code>, and <code>.</code> marks unvisited squares.</p>
-<p>This path reaches the goal in <code><em>31</em></code> steps, the fewest possible.</p>
-<p><em>What is the fewest steps required to move from your current position to the location that should get the best signal?</em></p>
+<p>These wires cross at two locations (marked <code>X</code>), but the lower-left one is closer to the central port: its distance is <code>3 + 3 = 6</code>.</p>
+<p>Here are a few more examples:</p>
+<ul>
+<li><code>R75,D30,R83,U83,L12,D49,R71,U7,L72<br/>U62,R66,U55,R34,D71,R55,D58,R83</code> = distance <code>159</code></li>
+<li><code>R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51<br/>U98,R91,D20,R16,D67,R40,U7,R15,U6,R7</code> = distance <code>135</code></li>
+</ul>
+<p><em>What is the Manhattan distance</em> from the central port to the closest intersection?</p>
