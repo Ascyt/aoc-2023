@@ -1,7 +1,7 @@
 import requests
 import re
 
-cookies = dict(session=input('Session cookie: '))
+cookies = {}
 
 def get_html(url)->str:
     try:
@@ -13,31 +13,33 @@ def get_html(url)->str:
     except requests.RequestException as ex:
         print(f"Error occurred: {ex}")
 
-def write(file_path, text):
+def write(file_path:str, text:str):
     print(f'Writing "{file_path}"...')
     file = open(file_path, 'w')
     file.write(text)
     file.close()
 
-year:int = input('Year: ')
-day:int = input('Day: ')
+if __name__ == '__main__':
+    cookies = dict(session=input('Session cookie: '))
+    year:int = input('Year: ')
+    day:int = input('Day: ')
 
-print()
+    print()
 
-print('Getting HTML...')
-html:str = get_html(f'https://adventofcode.com/{year}/day/{day}')
+    print('Getting HTML...')
+    html:str = get_html(f'https://adventofcode.com/{year}/day/{day}')
 
-print('Extracting article...')
-match = re.search('<article class="day-desc">(.*?)</article>', html, re.DOTALL)
+    print('Extracting article...')
+    match = re.search('<article class="day-desc">(.*?)</article>', html, re.DOTALL)
 
-if match:
-    html = match.group(1)
+    if match:
+        html = match.group(1)
 
-write('./files/task.html', html)
+    write('./files/task.html', html)
 
-print('Getting input...')
-input:str = get_html(f'https://adventofcode.com/{year}/day/{day}/input')
+    print('Getting input...')
+    input:str = get_html(f'https://adventofcode.com/{year}/day/{day}/input')
 
-write('./files/input.txt', input)
+    write('./files/input.txt', input)
 
-print('Program finished')
+    print('Program finished')
