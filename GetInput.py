@@ -33,11 +33,11 @@ match = re.search('<article class="day-desc">(.*?)</article>', html, re.DOTALL)
 if match:
     html = match.group(1)
 
-write('./task.html', html)
+write('./files/task.html', html)
 
 print('Getting input...')
 input:str = get_html(f'https://adventofcode.com/{year}/day/{day}/input')
 
-write('./input.txt', input)
+write('./files/input.txt', input)
 
 print('Program finished')
