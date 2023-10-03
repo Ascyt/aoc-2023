@@ -2,7 +2,7 @@ import OpenaiKey
 import openai
 from Tools import *
 
-write_title('SIMPLIFY INPUT')
+print_title('SIMPLIFY INPUT')
 
 print('Reading file...')
 with open('./files/task.html', 'r') as file:

@@ -2,7 +2,7 @@ import OpenaiKey
 import openai
 from Tools import *
 
-write_title('GENERATE HINTS')
+print_title('GENERATE HINTS')
 
 model:str = input('Use GPT-4? (y/N): ')
 model = 'gpt-4' if len(model) > 0 and model[0].lower() == 'y' else 'gpt-3.5-turbo-16k'

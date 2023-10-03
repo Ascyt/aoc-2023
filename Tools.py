@@ -5,7 +5,7 @@ def write(file_path:str, text:str):
     file.close()
     print(f'Wrote "{file_path}"')
 
-def write_title(text):
+def print_title(text):
     line:str = '-' * (len(text) + 2)
 
     print(line)
