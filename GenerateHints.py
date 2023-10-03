@@ -1,6 +1,6 @@
 import OpenaiKey
 import openai
-import GetInput
+from Tools import *
 
 model = 'gpt-4' if input('Use GPT-4? (y/N): ')[0].lower() == 'y' else 'gpt-3.5-turbo-16k'
 
@@ -30,6 +30,6 @@ response = openai.ChatCompletion.create(
   presence_penalty=0
 )
 
-GetInput.write('./files/hints.md', response['choices'][0]['message']['content'])
+write('./files/hints.md', response['choices'][0]['message']['content'])
 
 print('Program finished')

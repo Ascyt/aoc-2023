@@ -1,6 +1,6 @@
 import OpenaiKey
 import openai
-import GetInput
+from Tools import *
 
 print('Reading file...')
 with open('./files/task.html', 'r') as file:
@@ -28,6 +28,6 @@ response = openai.ChatCompletion.create(
   presence_penalty=0
 )
 
-GetInput.write('./files/simplified-task.html', response['choices'][0]['message']['content'])
+write('./files/simplified-task.html', response['choices'][0]['message']['content'])
 
 print('Program finished')
