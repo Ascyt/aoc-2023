@@ -1,80 +1,24 @@
-<h2>Day 12: Passage Pathing</h2>
-<p>With your submarine's subterranean subsystems subsisting suboptimally, the only way you're getting out of this cave anytime soon is by finding a path yourself. Not just a path - the only way to know if you've found the best path is to find all of them.</p>
-<p>Fortunately, the sensors are still mostly working, and so you build a rough map of the remaining caves (your puzzle input). For example:</p>
-<pre><code>start-A
-start-b
-A-c
-A-b
-b-d
-A-end
-b-end
-</code></pre>
-<p>This is a list of how all of the caves are connected. You start in the cave named <code>start</code>, and your destination is the cave named <code>end</code>. An entry like <code>b-d</code> means that cave <code>b</code> is connected to cave <code>d</code> - that is, you can move between them.</p>
-<p>Your goal is to find the number of distinct paths that start at <code>start</code>, end at <code>end</code>, and don't visit small caves more than once. There are two types of caves: big caves (written in uppercase, like <code>A</code>) and small caves (written in lowercase, like <code>b</code>). It would be a waste of time to visit any small cave more than once, but big caves are large enough that it might be worth visiting them multiple times. So, all paths you find should visit small caves at most once, and can visit big caves any number of times.</p>
-<p>Given these rules, there are 10 paths through this example cave system:</p>
-<pre><code>start,A,b,A,c,A,end
-start,A,b,A,end
-start,A,b,end
-start,A,c,A,b,A,end
-start,A,c,A,b,end
-start,A,c,A,end
-start,A,end
-start,b,A,c,A,end
-start,b,A,end
-start,b,end
-</code></pre>
-<p>Note that in this cave system, cave <code>d</code> is never visited by any path: to do so, cave <code>b</code> would need to be visited twice (once on the way to cave <code>d</code> and a second time when returning from cave <code>d</code>), and since cave <code>b</code> is small, this is not allowed.</p>
-<p>Here is a slightly larger example:</p>
-<pre><code>dc-end
-HN-start
-start-kj
-dc-start
-dc-HN
-LN-dc
-HN-end
-kj-sa
-kj-HN
-kj-dc
-</code></pre>
-<p>The 19 paths through it are as follows:</p>
-<pre><code>start,HN,dc,HN,end
-start,HN,dc,HN,kj,HN,end
-start,HN,dc,end
-start,HN,dc,kj,HN,end
-start,HN,end
-start,HN,kj,HN,dc,HN,end
-start,HN,kj,HN,dc,end
-start,HN,kj,HN,end
-start,HN,kj,dc,HN,end
-start,HN,kj,dc,end
-start,dc,HN,end
-start,dc,HN,kj,HN,end
-start,dc,end
-start,dc,kj,HN,end
-start,kj,HN,dc,HN,end
-start,kj,HN,dc,end
-start,kj,HN,end
-start,kj,dc,HN,end
-start,kj,dc,end
-</code></pre>
-<p>Finally, this even larger example has 226 paths through it:</p>
-<pre><code>fs-end
-he-DX
-fs-he
-start-DX
-pj-DX
-end-zg
-zg-sl
-zg-pj
-pj-he
-RW-he
-fs-DX
-pj-RW
-zg-RW
-start-pj
-he-WI
-zg-he
-pj-fs
-start-RW
-</code></pre>
-<p>How many paths through this cave system are there that visit small caves at most once?</p>
+<h2>Day 12: Hill Climbing Algorithm</h2>
+<p>You have a handheld device that you are using to contact the Elves. However, the signal is weak because you are following a low river.</p>
+<p>Your device provides a heightmap of the surrounding area, which is a grid. Each square in the grid is represented by a lowercase letter indicating its elevation. The lowest elevation is <code>a</code> and the highest elevation is <code>z</code>.</p>
+<p>Your current position is marked as <code>S</code> and the location that should receive the best signal is marked as <code>E</code>. Your current position has elevation <code>a</code> and the location that should receive the best signal has elevation <code>z</code>.</p>
+<p>You want to reach the location that should receive the best signal, but you want to do it in the fewest steps possible. You can move one square up, down, left, or right during each step. The elevation of the destination square can be at most one higher than the elevation of your current square. The destination square can also have a much lower elevation than your current square.</p>
+<p>For example:</p>
+<pre>
+Sabqponm
+abcryxxl
+accszExk
+acctuvwj
+abdefghi
+</pre>
+<p>In the above example, you start in the top-left corner and the goal is near the middle. You can start by moving down or right, but eventually you need to head towards the <code>e</code> at the bottom. You can spiral around to the goal as shown in the diagram:</p>
+<pre>
+v..v<<<
+>v.vv<<^
+.>vv>E^^
+..v>>>^^
+..>>>>^
+</pre>
+<p>In the above diagram, the symbols indicate the path exits for each square: up (<code>^</code>), down (<code>v</code>), left (<code>&lt;</code>), or right (<code>&gt;</code>). The location that should receive the best signal is still marked as <code>E</code>, and unvisited squares are marked as <code>.</code>.</p>
+<p>The fewest steps required to move from your current position to the location that should get the best signal is <code>31</code>.</p>
+<p><em>What is the fewest steps required to move from your current position to the location that should get the best signal?</em></p>

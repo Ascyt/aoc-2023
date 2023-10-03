@@ -14,6 +14,8 @@ def get_html(url)->str:
     except requests.RequestException as ex:
         print(f"Error occurred: {ex}")
 
+write_title('GET INPUT')
+
 cookies = dict(session=input('Session cookie: '))
 year:int = input('Year: ')
 day:int = input('Day: ')

@@ -4,3 +4,11 @@ def write(file_path:str, text:str):
     file.write(text)
     file.close()
     print(f'Wrote "{file_path}"')
+
+def write_title(text):
+    line:str = '-' * (len(text) + 2)
+
+    print(line)
+    print(' ' + text + ' ')
+    print(line)
+    print()

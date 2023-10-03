@@ -2,7 +2,10 @@ import OpenaiKey
 import openai
 from Tools import *
 
-model = 'gpt-4' if input('Use GPT-4? (y/N): ')[0].lower() == 'y' else 'gpt-3.5-turbo-16k'
+write_title('GENERATE HINTS')
+
+model:str = input('Use GPT-4? (y/N): ')
+model = 'gpt-4' if len(model) > 0 and model[0].lower() == 'y' else 'gpt-3.5-turbo-16k'
 
 print('Reading file...')
 with open('./files/simplified-task.html', 'r') as file:
