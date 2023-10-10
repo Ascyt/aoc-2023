@@ -1,27 +1,51 @@
-This problem involves finding the shortest path from the starting position to the destination position on a grid, taking into account the elevations of each square.
+## **Understanding the Problem**
 
-One possible approach to solve this problem is to use a variant of the Breadth-First Search (BFS) algorithm. Here is a step-by-step guide on how to solve the problem:
+The corrupted password database at the North Pole Toboggan Rental Shop contains a list of password policies. Each password policy consists of the following:
 
-1. Parse the input grid and store it in a data structure, such as a 2D array or a nested list. Each element of the grid represents the elevation at that position.
+- The lowest and highest number of times a given letter must appear in the password.
+- The password itself.
 
-2. Implement the BFS algorithm. Start by initializing a queue and adding the starting position to it. You can represent each position as a tuple (row, column) or as a custom object that includes the position and other relevant information.
+We need to determine the number of valid passwords based on the given policy.
 
-3. While the queue is not empty, dequeue a position from the queue.
+In the example provided, the password policy "1-3 a" means that the password must contain the letter "a" at least 1 time and at most 3 times.
 
-4. Check if the dequeued position is the destination position. If it is, return the number of steps taken to reach that position.
+The middle password ("cdefg") in the example is not valid because it contains no instances of the letter "b", but it requires at least 1 instance. The first and third passwords are valid because they contain one "a" and nine "c", respectively.
 
-5. Explore the neighboring positions of the dequeued position. For each neighboring position, check if it is a valid move based on the elevation conditions mentioned in the problem description.
+## **Approach**
 
-6. If a neighboring position is valid, enqueue it in the queue and keep track of the number of steps taken to reach that position.
+To solve this problem, we can follow these steps:
 
-7. Repeat steps 3-6 until either the destination position is found or the queue becomes empty.
+1. Iterate over each password policy.
+2. Split the password policy into the required frequency, the letter, and the password itself.
+3. Get the counts of the given letter in the password.
+4. Check if the count is within the required frequency range.
+5. Count the number of valid passwords.
+6. Return the count of valid passwords at the end.
 
-8. If the queue becomes empty without finding the destination position, it means it is not reachable from the starting position. In this case, return an appropriate value, such as -1, to indicate that it is not possible to reach the destination.
+## **Implementation in Python**
 
-9. Once you have implemented the BFS algorithm, run it on the provided example grid to verify that it returns the correct result of 31 steps.
+Here's an example implementation in Python:
 
-10. Apply the BFS algorithm to the actual input grid to find the fewest steps required to move from the starting position to the destination position.
+```python
+def count_valid_passwords(password_policies):
+    count = 0
 
-11. Return the result as the output of the program.
+    for policy in password_policies:
+        freq_range, letter, password = policy.split(" ")
+        min_freq, max_freq = map(int, freq_range.split("-"))
+        actual_freq = password.count(letter)
 
-Remember to handle various edge cases, such as invalid input, unreachable destination position, and handling the elevation conditions correctly during the BFS traversal.
+        if min_freq <= actual_freq <= max_freq:
+            count += 1
+
+    return count
+
+# Example usage
+password_policies = ["1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc"]
+valid_passwords = count_valid_passwords(password_policies)
+print(valid_passwords)  # Output: 2
+```
+
+**Complexity Analysis:**
+
+The time complexity of this approach is O(N), where N is the number of password policies. We iterate once over each password policy to count the valid passwords.

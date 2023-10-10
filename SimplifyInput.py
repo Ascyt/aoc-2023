@@ -16,7 +16,7 @@ response = openai.ChatCompletion.create(
   messages=[
     {
       "role": "system",
-      "content": "You will be provided with a task without its actual input. You need to respond with a simplified and prettier version of this task in an HTML format. Cut out any information that's not important for the actual task, however make sure to leave in any examples or hints that could be helpful to completing the task. Leave anything that could be helpful in, and feel free to add some tips yourself."
+      "content": "You will be provided with a task without its actual input. You need to respond with a simplified and prettier version of this task in an HTML format. Cut out any information that's neither important nor helpful for the actual task. Leave anything that could be helpful in, and feel free to add some tips yourself."
     },
     {
       "role": "user",

@@ -1,21 +1,17 @@
-<h2>--- Day 12: Hill Climbing Algorithm ---</h2><p>You try contacting the Elves using your <span title="When you look up the specs for your handheld device, every field just says &quot;plot&quot;.">handheld device</span>, but the river you're following must be too low to get a decent signal.</p>
-<p>You ask the device for a heightmap of the surrounding area (your puzzle input). The heightmap shows the local area from above broken into a grid; the elevation of each square of the grid is given by a single lowercase letter, where <code>a</code> is the lowest elevation, <code>b</code> is the next-lowest, and so on up to the highest elevation, <code>z</code>.</p>
-<p>Also included on the heightmap are marks for your current position (<code>S</code>) and the location that should get the best signal (<code>E</code>). Your current position (<code>S</code>) has elevation <code>a</code>, and the location that should get the best signal (<code>E</code>) has elevation <code>z</code>.</p>
-<p>You'd like to reach <code>E</code>, but to save energy, you should do it in <em>as few steps as possible</em>. During each step, you can move exactly one square up, down, left, or right. To avoid needing to get out your climbing gear, the elevation of the destination square can be <em>at most one higher</em> than the elevation of your current square; that is, if your current elevation is <code>m</code>, you could step to elevation <code>n</code>, but not to elevation <code>o</code>. (This also means that the elevation of the destination square can be much lower than the elevation of your current square.)</p>
-<p>For example:</p>
-<pre><code><em>S</em>abqponm
-abcryxxl
-accsz<em>E</em>xk
-acctuvwj
-abdefghi
-</code></pre>
-<p>Here, you start in the top-left corner; your goal is near the middle. You could start by moving down or right, but eventually you'll need to head toward the <code>e</code> at the bottom. From there, you can spiral around to the goal:</p>
-<pre><code>v..v&lt;&lt;&lt;&lt;
-&gt;v.vv&lt;&lt;^
-.&gt;vv&gt;E^^
-..v&gt;&gt;&gt;^^
-..&gt;&gt;&gt;&gt;&gt;^
-</code></pre>
-<p>In the above diagram, the symbols indicate whether the path exits each square moving up (<code>^</code>), down (<code>v</code>), left (<code>&lt;</code>), or right (<code>&gt;</code>). The location that should get the best signal is still <code>E</code>, and <code>.</code> marks unvisited squares.</p>
-<p>This path reaches the goal in <code><em>31</em></code> steps, the fewest possible.</p>
-<p><em>What is the fewest steps required to move from your current position to the location that should get the best signal?</em></p>
+<h2>--- Day 2: Inventory Management System ---</h2><p>You stop falling through time, catch your breath, and check the screen on the device. "Destination reached. Current Year: 1518. Current Location: North Pole Utility Closet 83N10." You made it! Now, to find those anomalies.</p>
+<p>Outside the utility closet, you hear footsteps and a voice. "...I'm not sure either. But now that <span title="This is, in fact, roughly when chimneys became common in houses.">so many people have chimneys</span>, maybe he could sneak in that way?" Another voice responds, "Actually, we've been working on a new kind of <em>suit</em> that would let him fit through tight spaces like that. But, I heard that a few days ago, they lost the prototype fabric, the design plans, everything! Nobody on the team can even seem to remember important details of the project!"</p>
+<p>"Wouldn't they have had enough fabric to fill several boxes in the warehouse? They'd be stored together, so the box IDs should be similar. Too bad it would take forever to search the warehouse for <em>two similar box IDs</em>..." They walk too far away to hear any more.</p>
+<p>Late at night, you sneak to the warehouse - who knows what kinds of paradoxes you could cause if you were discovered - and use your fancy wrist device to quickly scan every box and produce a list of the likely candidates (your puzzle input).</p>
+<p>To make sure you didn't miss any, you scan the likely candidate boxes again, counting the number that have an ID containing <em>exactly two of any letter</em> and then separately counting those with <em>exactly three of any letter</em>. You can multiply those two counts together to get a rudimentary <a href="https://en.wikipedia.org/wiki/Checksum">checksum</a> and compare it to what your device predicts.</p>
+<p>For example, if you see the following box IDs:</p>
+<ul>
+<li><code>abcdef</code> contains no letters that appear exactly two or three times.</li>
+<li><code>bababc</code> contains two <code>a</code> and three <code>b</code>, so it counts for both.</li>
+<li><code>abbcde</code> contains two <code>b</code>, but no letter appears exactly three times.</li>
+<li><code>abcccd</code> contains three <code>c</code>, but no letter appears exactly two times.</li>
+<li><code>aabcdd</code> contains two <code>a</code> and two <code>d</code>, but it only counts once.</li>
+<li><code>abcdee</code> contains two <code>e</code>.</li>
+<li><code>ababab</code> contains three <code>a</code> and three <code>b</code>, but it only counts once.</li>
+</ul>
+<p>Of these box IDs, four of them contain a letter which appears exactly twice, and three of them contain a letter which appears exactly three times. Multiplying these together produces a checksum of <code>4 * 3 = 12</code>.</p>
+<p><em>What is the checksum</em> for your list of box IDs?</p>

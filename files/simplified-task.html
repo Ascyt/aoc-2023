@@ -1,24 +1,14 @@
-<h2>Day 12: Hill Climbing Algorithm</h2>
-<p>You have a handheld device that you are using to contact the Elves. However, the signal is weak because you are following a low river.</p>
-<p>Your device provides a heightmap of the surrounding area, which is a grid. Each square in the grid is represented by a lowercase letter indicating its elevation. The lowest elevation is <code>a</code> and the highest elevation is <code>z</code>.</p>
-<p>Your current position is marked as <code>S</code> and the location that should receive the best signal is marked as <code>E</code>. Your current position has elevation <code>a</code> and the location that should receive the best signal has elevation <code>z</code>.</p>
-<p>You want to reach the location that should receive the best signal, but you want to do it in the fewest steps possible. You can move one square up, down, left, or right during each step. The elevation of the destination square can be at most one higher than the elevation of your current square. The destination square can also have a much lower elevation than your current square.</p>
-<p>For example:</p>
-<pre>
-Sabqponm
-abcryxxl
-accszExk
-acctuvwj
-abdefghi
-</pre>
-<p>In the above example, you start in the top-left corner and the goal is near the middle. You can start by moving down or right, but eventually you need to head towards the <code>e</code> at the bottom. You can spiral around to the goal as shown in the diagram:</p>
-<pre>
-v..v<<<
->v.vv<<^
-.>vv>E^^
-..v>>>^^
-..>>>>^
-</pre>
-<p>In the above diagram, the symbols indicate the path exits for each square: up (<code>^</code>), down (<code>v</code>), left (<code>&lt;</code>), or right (<code>&gt;</code>). The location that should receive the best signal is still marked as <code>E</code>, and unvisited squares are marked as <code>.</code>.</p>
-<p>The fewest steps required to move from your current position to the location that should get the best signal is <code>31</code>.</p>
-<p><em>What is the fewest steps required to move from your current position to the location that should get the best signal?</em></p>
+<h2>Day 2: Inventory Management System</h2>
+<p>You have a list of box IDs in a warehouse. You need to find the checksum, which is calculated by counting the number of box IDs that contain exactly two of any letter, and the number of box IDs that contain exactly three of any letter. Multiply these two counts together to get the checksum.</p>
+<p>For example, given the following box IDs:</p>
+<ul>
+<li>abcdef</li>
+<li>bababc</li>
+<li>abbcde</li>
+<li>abcccd</li>
+<li>aabcdd</li>
+<li>abcdee</li>
+<li>ababab</li>
+</ul>
+<p>There are four box IDs that contain a letter which appears exactly twice, and three box IDs that contain a letter which appears exactly three times. The checksum is calculated as 4 * 3 = 12.</p>
+<p>What is the checksum for your list of box IDs?</p>
