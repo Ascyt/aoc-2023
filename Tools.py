@@ -5,6 +5,11 @@ def write(file_path:str, text:str):
     file.close()
     print(f'Wrote "{file_path}"')
 
+def read(file_path:str)->str:
+    print('Reading file...')
+    with open(file_path, 'r') as file:
+        return file.read()
+
 def print_title(text):
     line:str = '-' * (len(text) + 2)
 

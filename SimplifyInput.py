@@ -4,9 +4,7 @@ from Tools import *
 
 print_title('SIMPLIFY INPUT')
 
-print('Reading file...')
-with open('./files/task.html', 'r') as file:
-    content:str = file.read()
+content:str = read('./files/simplified-task.html')
 
 print('Generating response...')
 openai.api_key = SensitiveData.OPENAI_KEY
