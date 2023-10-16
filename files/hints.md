@@ -1,14 +1,27 @@
-This problem is a classic example of the traveling salesman problem (TSP), which is known to be NP-hard. The input will consist of distances between pairs of locations, and the goal is to find the shortest route that visits each location exactly once.
+This problem requires following a series of navigation instructions to determine the final location of the ship. Here's a possible approach to solve it:
 
-One possible approach to solve this problem is to use a brute force technique, which involves generating all possible permutations of the locations and calculating the distance of each route. The shortest distance can then be determined by finding the minimum distance among all routes.
+1. Initialize variables to keep track of the ship's position and direction. Set the starting position to (0, 0) and the direction to "east".
 
-Here is a possible high-level algorithm to solve this problem:
+2. Read the navigation instructions line by line.
 
-1. Read the input distances between each pair of locations.
-2. Generate all possible permutations of the locations.
-3. For each permutation:
-   - Calculate the total distance of the route.
-4. Find the minimum distance among all routes.
-5. Output the minimum distance.
+3. For each instruction, extract the action and the value.
 
-Keep in mind that brute force can be computationally expensive, especially for larger inputs. If the number of locations is relatively small, this approach should work well. However, for larger inputs, more efficient algorithms such as dynamic programming or heuristics like the nearest neighbor algorithm or the 2-opt algorithm can be considered.
+4. Implement a set of conditional statements to handle each action:
+
+   - For "N" (move north), add the value to the ship's current north position.
+   - For "S" (move south), subtract the value from the ship's current north position.
+   - For "E" (move east), add the value to the ship's current east position.
+   - For "W" (move west), subtract the value from the ship's current east position.
+   - For "L" (turn left), update the direction by rotating it counter-clockwise by the given number of degrees.
+   - For "R" (turn right), update the direction by rotating it clockwise by the given number of degrees.
+   - For "F" (move forward), update the position based on the ship's current direction and the given value:
+     - If the ship is facing "north", add the value to the north position.
+     - If the ship is facing "south", subtract the value from the north position.
+     - If the ship is facing "east", add the value to the east position.
+     - If the ship is facing "west", subtract the value from the east position.
+
+5. After processing all the instructions, calculate the Manhattan distance by taking the absolute values of the east and north positions and summing them.
+
+6. Output the Manhattan distance as the result.
+
+This approach should give you the Manhattan distance between the final location and the ship's starting position.

@@ -1,22 +1,31 @@
-<h2>Day 9: All in a Single Night</h2>
-<p>Santa needs to visit multiple locations and wants to find the shortest distance to travel between them.</p>
-<p>He has a list of distances between each pair of locations.</p>
-<p>Santa can start and end at any two different locations, but he must visit each location exactly once.</p>
-<p>The task is to determine the shortest distance Santa can travel to achieve this.</p>
-<p>For example, given the following distances:</p>
-<pre>
-London to Dublin = 464
-London to Belfast = 518
-Dublin to Belfast = 141
-</pre>
-<p>The possible routes are:</p>
-<pre>
-Dublin -> London -> Belfast = 982
-London -> Dublin -> Belfast = 605
-London -> Belfast -> Dublin = 659
-Dublin -> Belfast -> London = 659
-Belfast -> Dublin -> London = 605
-Belfast -> London -> Dublin = 982
-</pre>
-<p>The shortest of these routes is <code>London -> Dublin -> Belfast = 605</code>, so the answer is <code>605</code> in this example.</p>
-<p>Find the distance of the shortest route.</p>
+<h2>Day 12: Rain Risk</h2>
+<p>Your ferry made decent progress toward the island, but the storm came in faster than anyone expected. The ferry needs to take evasive actions!</p>
+<p>Unfortunately, the ship's navigation computer seems to be malfunctioning; rather than giving a route directly to safety, it produced extremely circuitous instructions. When the captain uses the PA system to ask if anyone can help, you quickly volunteer.</p>
+<p>The navigation instructions consists of a sequence of single-character actions paired with integer input values. After staring at them for a few minutes, you work out what they probably mean:</p>
+<ul>
+<li>Action <em>N</em> means to move north by the given value.</li>
+<li>Action <em>S</em> means to move south by the given value.</li>
+<li>Action <em>E</em> means to move east by the given value.</li>
+<li>Action <em>W</em> means to move west by the given value.</li>
+<li>Action <em>L</em> means to turn left the given number of degrees.</li>
+<li>Action <em>R</em> means to turn right the given number of degrees.</li>
+<li>Action <em>F</em> means to move forward by the given value in the direction the ship is currently facing.</li>
+</ul>
+<p>The ship starts by facing east. Only the L and R actions change the direction the ship is facing. (That is, if the ship is facing east and the next instruction is N10, the ship would move north 10 units, but would still move east if the following action were F.)</p>
+<p>For example:</p>
+<pre><code>F10
+N3
+F7
+R90
+F11
+</code></pre>
+<p>These instructions would be handled as follows:</p>
+<ul>
+<li>F10 would move the ship 10 units east (because the ship starts by facing east) to east 10, north 0.</li>
+<li>N3 would move the ship 3 units north to east 10, north 3.</li>
+<li>F7 would move the ship another 7 units east (because the ship is still facing east) to east 17, north 3.</li>
+<li>R90 would cause the ship to turn right by 90 degrees and face south; it remains at east 17, north 3.</li>
+<li>F11 would move the ship 11 units south to east 17, south 8.</li>
+</ul>
+<p>At the end of these instructions, the ship's Manhattan distance (sum of the absolute values of its east/west position and its north/south position) from its starting position is 17 + 8 = 25.</p>
+<p>Figure out where the navigation instructions lead. What is the Manhattan distance between that location and the ship's starting position?</p>
