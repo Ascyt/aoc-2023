@@ -1,6 +1,7 @@
 import requests
 import re
 from Tools import *
+import SensitiveData
 
 cookies = {}
 
@@ -16,7 +17,7 @@ def get_html(url)->str:
 
 print_title('GET INPUT')
 
-cookies = dict(session=input('Session cookie: '))
+cookies = dict(session=SensitiveData.SESSION_COOKIE)
 year:int = input('Year: ')
 day:int = input('Day: ')
 

@@ -1,4 +1,4 @@
-import OpenaiKey
+import SensitiveData
 import openai
 from Tools import *
 
@@ -9,7 +9,7 @@ with open('./files/task.html', 'r') as file:
     content:str = file.read()
 
 print('Generating response...')
-openai.api_key = OpenaiKey.OPENAI_KEY
+openai.api_key = SensitiveData.OPENAI_KEY
 
 response = openai.ChatCompletion.create(
   model="gpt-3.5-turbo-16k",

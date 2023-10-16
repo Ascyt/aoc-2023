@@ -1,14 +1,22 @@
-<h2>Day 2: Inventory Management System</h2>
-<p>You have a list of box IDs in a warehouse. You need to find the checksum, which is calculated by counting the number of box IDs that contain exactly two of any letter, and the number of box IDs that contain exactly three of any letter. Multiply these two counts together to get the checksum.</p>
-<p>For example, given the following box IDs:</p>
-<ul>
-<li>abcdef</li>
-<li>bababc</li>
-<li>abbcde</li>
-<li>abcccd</li>
-<li>aabcdd</li>
-<li>abcdee</li>
-<li>ababab</li>
-</ul>
-<p>There are four box IDs that contain a letter which appears exactly twice, and three box IDs that contain a letter which appears exactly three times. The checksum is calculated as 4 * 3 = 12.</p>
-<p>What is the checksum for your list of box IDs?</p>
+<h2>Day 9: All in a Single Night</h2>
+<p>Santa needs to visit multiple locations and wants to find the shortest distance to travel between them.</p>
+<p>He has a list of distances between each pair of locations.</p>
+<p>Santa can start and end at any two different locations, but he must visit each location exactly once.</p>
+<p>The task is to determine the shortest distance Santa can travel to achieve this.</p>
+<p>For example, given the following distances:</p>
+<pre>
+London to Dublin = 464
+London to Belfast = 518
+Dublin to Belfast = 141
+</pre>
+<p>The possible routes are:</p>
+<pre>
+Dublin -> London -> Belfast = 982
+London -> Dublin -> Belfast = 605
+London -> Belfast -> Dublin = 659
+Dublin -> Belfast -> London = 659
+Belfast -> Dublin -> London = 605
+Belfast -> London -> Dublin = 982
+</pre>
+<p>The shortest of these routes is <code>London -> Dublin -> Belfast = 605</code>, so the answer is <code>605</code> in this example.</p>
+<p>Find the distance of the shortest route.</p>
