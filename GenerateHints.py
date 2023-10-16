@@ -27,7 +27,7 @@ response = openai.ChatCompletion.create(
     }
   ],
   temperature=1,
-  max_tokens=8192,
+  max_tokens=4096,
   top_p=1,
   frequency_penalty=0,
   presence_penalty=0
