@@ -1,11 +1,9 @@
 import SensitiveData
+import Config
 import openai
 from Tools import *
 
 print_title('GENERATE HINTS')
-
-model:str = input('Use GPT-4? (y/N): ')
-model = 'gpt-4' if len(model) > 0 and model[0].lower() == 'y' else 'gpt-3.5-turbo-16k'
 
 print('Reading file...')
 with open('./files/simplified-task.html', 'r') as file:
@@ -15,7 +13,7 @@ print('Generating response...')
 openai.api_key = SensitiveData.OPENAI_KEY
 
 response = openai.ChatCompletion.create(
-  model=model,
+  model=Config.MODEL,
   messages=[
     {
       "role": "system",

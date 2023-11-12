@@ -1,16 +1,17 @@
 import SensitiveData
+import Config
 import openai
 from Tools import *
 
 print_title('SIMPLIFY INPUT')
 
-content:str = read('./files/simplified-task.html')
+content:str = read('./files/task.html')
 
 print('Generating response...')
 openai.api_key = SensitiveData.OPENAI_KEY
 
 response = openai.ChatCompletion.create(
-  model="gpt-3.5-turbo-16k",
+  model=Config.MODEL,
   messages=[
     {
       "role": "system",
@@ -22,7 +23,7 @@ response = openai.ChatCompletion.create(
     }
   ],
   temperature=0.8,
-  max_tokens=8192,
+  max_tokens=Config.MAXIMUM_LENGTH,
   top_p=1,
   frequency_penalty=0,
   presence_penalty=0

@@ -1,5 +1,8 @@
+import os
+
 def write(file_path:str, text:str):
     print(f'Writing "{file_path}"...')
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
     file = open(file_path, 'w')
     file.write(text)
     file.close()
