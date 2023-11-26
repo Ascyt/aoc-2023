@@ -5,10 +5,11 @@ import SensitiveData
 from datetime import datetime
 import time
 import sys
+import webbrowser
 
 cookies = {}
 
-def get_html(url)->str:
+def get_html(url):
     response = requests.get(url, cookies=cookies)
     return response
 
@@ -20,6 +21,8 @@ now = datetime.now()
 
 day:int = now.day
 year:int = now.year
+#day = 10
+#year = 2022
 
 print(f'Year {year} | Day {day}')
 
@@ -34,8 +37,10 @@ def clear_line():
     sys.stdout.write("\033[F")  # Cursor up one line
     sys.stdout.write("\033[K")  # Clear to the end of line
 
+link:str = f'https://adventofcode.com/{year}/day/{day}'
+
 while True:
-    response:str = get_html(f'https://adventofcode.com/{year}/day/{day}')
+    response:str = get_html(link)
     if response.status_code == 200:
         print('Successfully fetched HTML')
         html = response.text
@@ -52,6 +57,7 @@ while True:
 
     raise requests.HTTPError(response=response)
 
+webbrowser.open(link)
 
 print('Extracting article...')
 match = re.search('<article class="day-desc">(.*?)</article>', html, re.DOTALL)
@@ -62,6 +68,6 @@ if match:
 write('./files/task.html', html)
 
 print('Getting input...')
-input:str = get_html(f'https://adventofcode.com/{year}/day/{day}/input')
+input:str = get_html(f'https://adventofcode.com/{year}/day/{day}/input').text
 
 write('./files/input.txt', input)

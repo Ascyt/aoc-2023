@@ -1,0 +1,62 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\filip\\Documents\\aoc\\aoc-2023\\3DimParser\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4B2BAE98-87A1-4878-8F70-F6DC3DF4F01E}|3DimParser\\3DimParser.csproj|c:\\users\\filip\\documents\\aoc\\aoc-2023\\3dimparser\\3dimparser\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B2BAE98-87A1-4878-8F70-F6DC3DF4F01E}|3DimParser\\3DimParser.csproj|solutionrelative:3dimparser\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B2BAE98-87A1-4878-8F70-F6DC3DF4F01E}|3DimParser\\3DimParser.csproj|c:\\users\\filip\\documents\\aoc\\aoc-2023\\3dimparser\\3dimparser\\3dimparser.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4B2BAE98-87A1-4878-8F70-F6DC3DF4F01E}|3DimParser\\3DimParser.csproj|solutionrelative:3dimparser\\3dimparser.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "3DimParser.csproj",
+              "DocumentMoniker": "C:\\Users\\filip\\Documents\\aoc\\aoc-2023\\3DimParser\\3DimParser\\3DimParser.csproj",
+              "RelativeDocumentMoniker": "3DimParser\\3DimParser.csproj",
+              "ToolTip": "C:\\Users\\filip\\Documents\\aoc\\aoc-2023\\3DimParser\\3DimParser\\3DimParser.csproj",
+              "RelativeToolTip": "3DimParser\\3DimParser.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2023-11-26T13:52:05.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\filip\\Documents\\aoc\\aoc-2023\\3DimParser\\3DimParser\\Program.cs",
+              "RelativeDocumentMoniker": "3DimParser\\Program.cs",
+              "ToolTip": "C:\\Users\\filip\\Documents\\aoc\\aoc-2023\\3DimParser\\3DimParser\\Program.cs",
+              "RelativeToolTip": "3DimParser\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-26T13:21:24.708Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

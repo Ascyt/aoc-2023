@@ -1,0 +1,14 @@
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\bin\Debug\net6.0\3DimParser.exe
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\bin\Debug\net6.0\3DimParser.deps.json
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\bin\Debug\net6.0\3DimParser.runtimeconfig.json
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\bin\Debug\net6.0\3DimParser.dll
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\bin\Debug\net6.0\3DimParser.pdb
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\obj\Debug\net6.0\3DimParser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\obj\Debug\net6.0\3DimParser.AssemblyInfoInputs.cache
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\obj\Debug\net6.0\3DimParser.AssemblyInfo.cs
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\obj\Debug\net6.0\3DimParser.csproj.CoreCompileInputs.cache
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\obj\Debug\net6.0\3DimParser.dll
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\obj\Debug\net6.0\refint\3DimParser.dll
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\obj\Debug\net6.0\3DimParser.pdb
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\obj\Debug\net6.0\3DimParser.genruntimeconfig.cache
+C:\Users\danis\Desktop\Schule\Syp\3DimParser\3DimParser\obj\Debug\net6.0\ref\3DimParser.dll
