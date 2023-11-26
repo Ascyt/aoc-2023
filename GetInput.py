@@ -1,7 +1,6 @@
 import requests
 import re
 from Tools import *
-import SensitiveData
 from datetime import datetime
 import time
 import sys
@@ -15,7 +14,7 @@ def get_html(url):
 
 print_title('GET INPUT')
 
-cookies = dict(session=SensitiveData.SESSION_COOKIE)
+cookies = dict(input('Session cookie: '))
 
 now = datetime.now()
 
