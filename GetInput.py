@@ -14,7 +14,7 @@ def get_html(url):
 
 print_title('GET INPUT')
 
-cookies = dict(input('Session cookie: '))
+cookies = dict({'session':input('Session cookie: ')})
 
 now = datetime.now()
 
