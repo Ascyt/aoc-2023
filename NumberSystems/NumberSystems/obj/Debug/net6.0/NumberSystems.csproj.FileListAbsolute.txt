@@ -1,0 +1,15 @@
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\bin\Debug\net6.0\NumberSystems.exe
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\bin\Debug\net6.0\NumberSystems.deps.json
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\bin\Debug\net6.0\NumberSystems.runtimeconfig.json
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\bin\Debug\net6.0\NumberSystems.dll
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\bin\Debug\net6.0\NumberSystems.pdb
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\obj\Debug\net6.0\NumberSystems.csproj.AssemblyReference.cache
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\obj\Debug\net6.0\NumberSystems.GeneratedMSBuildEditorConfig.editorconfig
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\obj\Debug\net6.0\NumberSystems.AssemblyInfoInputs.cache
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\obj\Debug\net6.0\NumberSystems.AssemblyInfo.cs
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\obj\Debug\net6.0\NumberSystems.csproj.CoreCompileInputs.cache
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\obj\Debug\net6.0\NumberSystems.dll
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\obj\Debug\net6.0\refint\NumberSystems.dll
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\obj\Debug\net6.0\NumberSystems.pdb
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\obj\Debug\net6.0\NumberSystems.genruntimeconfig.cache
+C:\HTL_Leonding\3CHIF\SYP\PROJEKTE\AdventOfCodeProjekt\NumberSystems\NumberSystems\obj\Debug\net6.0\ref\NumberSystems.dll
