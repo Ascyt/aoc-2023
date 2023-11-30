@@ -9,6 +9,7 @@ class Programm
     // Write your solution here. Return any type you want. 
     public static object GetSolution(string[] lines, string[][][] parsedData3Dim, string[] parsedDataReplcaChar) // You don't have to use everything 
     {
+        return 42;
         throw new NotImplementedException();
     }
 
@@ -27,6 +28,9 @@ class Programm
         string[] parsedDataReplcaChar = ReplaceCharacterParser.Parser(filePath);
         //int[,,] parsedDataBinary = ByteParser.ParseInputFile(filePath, 1000, 1000);
 
+        // Die Ausgabe in eine Textdatei schreiben und öffnen
+        PrintAndOpenFile(parsedData3Dim);
+
         // Die Lösung berechnen
         object solution = GetSolution(lines, parsedData3Dim, parsedDataReplcaChar);
 
@@ -36,6 +40,54 @@ class Programm
         // Die Lösung in die Zwischenablage kopieren
         Clipboard.SetText(solution.ToString());
         Console.WriteLine("Copied solution to clipboard.");
+    }
+
+    static void PrintAndOpenFile(string[][][] array)
+    {
+        string filePath = @"..\..\..\..\..\files\parsedData3Dim.txt";
+
+        using (StreamWriter writer = new StreamWriter(filePath))
+        {
+            int dim1 = array.Length;
+
+            if (dim1 == 1)
+            {
+                foreach (var row in array[0])
+                {
+                    foreach (var element in row)
+                    {
+                        writer.Write($"{element} ");
+                    }
+                    writer.WriteLine();
+                }
+            }
+            else
+            {
+                for (int i = 0; i < dim1; i++)
+                {
+                    writer.WriteLine($"Matrix {i + 1}:");
+                    foreach (var row in array[i])
+                    {
+                        foreach (var element in row)
+                        {
+                            writer.Write($"{element} ");
+                        }
+                        writer.WriteLine();
+                    }
+                    writer.WriteLine();
+                }
+            }
+        }
+
+        // Öffne die Textdatei mit dem Standard-Texteditor
+        try
+        {
+            System.Diagnostics.Process.Start("notepad.exe", filePath);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Fehler beim Öffnen der Datei: {ex.Message}");
+        }
     }
 }
 
