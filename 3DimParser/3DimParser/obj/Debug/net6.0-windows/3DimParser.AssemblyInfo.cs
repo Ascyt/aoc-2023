@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("3DimParser")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65788a2b1be2c8f2601fbf46b72d38e41393005b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("3DimParser")]
 [assembly: System.Reflection.AssemblyTitleAttribute("3DimParser")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
