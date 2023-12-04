@@ -20,8 +20,7 @@ now = datetime.now()
 
 day:int = now.day
 year:int = now.year
-#day = 10
-#year = 2022
+
 
 print(f'Year {year} | Day {day}')
 

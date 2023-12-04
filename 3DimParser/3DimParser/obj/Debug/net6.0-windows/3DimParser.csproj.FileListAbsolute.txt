@@ -45,3 +45,19 @@ C:\Users\FamZauner\Documents\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-win
 C:\Users\FamZauner\Documents\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.pdb
 C:\Users\FamZauner\Documents\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.genruntimeconfig.cache
 C:\Users\FamZauner\Documents\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\ref\3DimParser.dll
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\bin\Debug\net6.0-windows\3DimParser.exe
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\bin\Debug\net6.0-windows\3DimParser.deps.json
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\bin\Debug\net6.0-windows\3DimParser.runtimeconfig.json
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\bin\Debug\net6.0-windows\3DimParser.dll
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\bin\Debug\net6.0-windows\ref\3DimParser.dll
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\bin\Debug\net6.0-windows\3DimParser.pdb
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.csproj.AssemblyReference.cache
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.csproj.ResolveComReference.cache
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.AssemblyInfoInputs.cache
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.AssemblyInfo.cs
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.csproj.CoreCompileInputs.cache
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.dll
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\ref\3DimParser.dll
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.pdb
+C:\Schule\3CHIF WMC\aoc-2023\3DimParser\3DimParser\obj\Debug\net6.0-windows\3DimParser.genruntimeconfig.cache
