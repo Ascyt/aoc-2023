@@ -87,6 +87,7 @@ public static class Tools {
     }
 }
 
+
 class TextFileParser
 {
     public static string[][][] ParseFile(string filePath, string delimiter)
@@ -94,50 +95,55 @@ class TextFileParser
         string[] lines = File.ReadAllLines(filePath);
         List<string[][]> blocks = new List<string[][]>();
         List<string[]> currentBlock = new List<string[]>();
+        int maxBlockLength = 0;
+        int maxLineLength = 0;
 
+        // Erste Durchlauf, um die maximale Größe zu bestimmen
         foreach (var line in lines)
         {
             if (string.IsNullOrWhiteSpace(line))
             {
                 if (currentBlock.Count > 0)
                 {
+                    maxBlockLength = Math.Max(maxBlockLength, currentBlock.Count);
                     blocks.Add(currentBlock.ToArray());
                     currentBlock.Clear();
                 }
             }
             else
             {
-                if (string.IsNullOrEmpty(delimiter))
-                {
-                    currentBlock.Add(new string[] { line });
-                }
-                else
-                {
-                    currentBlock.Add(line.Split(new string[] { delimiter }, StringSplitOptions.None));
-                }
+                string[] segments = line.Split(delimiter);
+                maxLineLength = Math.Max(maxLineLength, segments.Length);
+                currentBlock.Add(segments);
             }
         }
-
         if (currentBlock.Count > 0)
         {
+            maxBlockLength = Math.Max(maxBlockLength, currentBlock.Count);
             blocks.Add(currentBlock.ToArray());
         }
 
-        return ConvertTo3DArray(blocks);
-    }
-
-    private static string[][][] ConvertTo3DArray(List<string[][]> blocks)
-    {
+        // Zweiter Durchlauf, um das 3D-Array zu erstellen
         string[][][] result = new string[blocks.Count][][];
         for (int i = 0; i < blocks.Count; i++)
         {
-            result[i] = new string[blocks[i].Length][];
-            for (int j = 0; j < blocks[i].Length; j++)
+            result[i] = new string[maxBlockLength][];
+            for (int j = 0; j < maxBlockLength; j++)
             {
-                result[i][j] = new string[blocks[i][j].Length];
-                for (int k = 0; k < blocks[i][j].Length; k++)
+                result[i][j] = new string[maxLineLength];
+                if (j < blocks[i].Length)
                 {
-                    result[i][j][k] = blocks[i][j][k];
+                    for (int k = 0; k < maxLineLength; k++)
+                    {
+                        result[i][j][k] = k < blocks[i][j].Length ? blocks[i][j][k] : string.Empty;
+                    }
+                }
+                else
+                {
+                    for (int k = 0; k < maxLineLength; k++)
+                    {
+                        result[i][j][k] = string.Empty;
+                    }
                 }
             }
         }
@@ -145,7 +151,42 @@ class TextFileParser
         return result;
     }
 
-    
+    private static void UpdateMaxLengths(List<string[]> currentBlock, ref int maxBlockLength, ref int maxLineLength)
+    {
+        maxBlockLength = Math.Max(maxBlockLength, currentBlock.Count);
+        foreach (var line in currentBlock)
+        {
+            foreach (var element in line)
+            {
+                maxLineLength = Math.Max(maxLineLength, element.Length);
+            }
+        }
+    }
+
+    private static string[][][] ConvertTo3DArray(List<string[][]> blocks, int maxBlockLength, int maxLineLength)
+    {
+        string[][][] result = new string[blocks.Count][][];
+        for (int i = 0; i < blocks.Count; i++)
+        {
+            result[i] = new string[maxBlockLength][];
+            for (int j = 0; j < maxBlockLength; j++)
+            {
+                result[i][j] = j < blocks[i].Length ? new string[blocks[i][j].Length] : new string[0];
+                for (int k = 0; k < result[i][j].Length; k++)
+                {
+                    if (j < blocks[i].Length && k < blocks[i][j].Length)
+                    {
+                        result[i][j][k] = blocks[i][j][k];
+                    }
+                    else
+                    {
+                        result[i][j][k] = string.Empty; // Oder ein anderer Standardwert
+                    }
+                }
+            }
+        }
+        return result;
+    }
 }
 
 
