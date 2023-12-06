@@ -5,6 +5,7 @@ from datetime import datetime
 import time
 import sys
 import webbrowser
+import subprocess
 
 cookies = {}
 
@@ -69,3 +70,15 @@ print('Getting input...')
 input:str = get_html(f'https://adventofcode.com/{year}/day/{day}/input').text
 
 write('./files/input.txt', input)
+
+print('Opening in notepad.exe...')
+
+def open_file_in_notepad(file_path):
+    try:
+        # Try to open the file in an existing Notepad instance
+        subprocess.Popen(['notepad.exe', file_path])
+    except FileNotFoundError:
+        # If Notepad is not currently open, open the file in a new Notepad instance
+        subprocess.Popen(['start', 'notepad.exe', file_path])
+
+open_file_in_notepad('./files/input.txt')
