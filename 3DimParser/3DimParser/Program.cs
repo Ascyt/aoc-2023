@@ -9,22 +9,9 @@ using System.Xml;
 class Programm
 {
     // Write your solution here. Return any type you want. 
-    public static object GetSolution(string[] lines, string[][][] parsedData3Dim, string[] parsedDataReplcaChar) // You don't have to use everything 
+    public static object? GetSolution(string[] lines, string[][][] parsedData3Dim, string[] parsedDataReplcaChar) // You don't have to use everything 
     {
-        for (int i = 0; i < parsedData3Dim.Length; i++)
-        {
-            for (int j = 0; j < parsedData3Dim[i].Length; j++)
-            {
-                for (int k = 0; k < parsedData3Dim[i][j].Length; k++)
-                {
-                    Console.WriteLine($"Block {i + 1}, Zeile {j + 1}, Spalte {k + 1}: {parsedData3Dim[i][j][k].Length} {parsedData3Dim[i][j][k]}");
-                }
-            }
-        }
-
-        
-
-        return parsedData3Dim;
+        return null;
     }
 
     [STAThread]
@@ -32,7 +19,6 @@ class Programm
     {
         // Pfad zur Textdatei
         string filePath = @"..\..\..\..\..\files\input.txt";
-        OpenFileInNotepad();
 
         // Optional: Definieren Sie ein Trennzeichen
         string delimiter = " "; // Beispiel für ein Komma als Trennzeichen
@@ -44,7 +30,13 @@ class Programm
         //int[,,] parsedDataBinary = ByteParser.ParseInputFile(filePath, 1000, 1000);
 
         // Die Lösung berechnen
-        object solution = GetSolution(lines, parsedData3Dim, parsedDataReplcaChar);
+        object? solution = GetSolution(lines, parsedData3Dim, parsedDataReplcaChar);
+
+        if (solution is null)
+        {
+            Console.WriteLine("{null}");
+            return;
+        }
 
         // Die Lösung ausgeben
         Console.WriteLine(solution);
@@ -52,28 +44,6 @@ class Programm
         // Die Lösung in die Zwischenablage kopieren
         Clipboard.SetText(solution.ToString());
         Console.WriteLine("Copied solution to clipboard.");
-    }
-
-    static void OpenFileInNotepad()
-    {
-        string filePath = @"..\..\..\..\..\files\input.txt";
-
-        Process[] processes = Process.GetProcessesByName("notepad");
-
-        if (processes.Length > 0)
-        {
-            return; // Notepad ist schon offen
-        }
-
-        // Öffne die Textdatei mit dem Standard-Texteditor
-        try
-        {
-            System.Diagnostics.Process.Start("notepad.exe", filePath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Fehler beim Öffnen der Datei: {ex.Message}");
-        }
     }
 }
 
