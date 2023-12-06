@@ -47,6 +47,46 @@ class Programm
     }
 }
 
+public static class Tools {
+
+    public static void QuickSort(long[] arr, long low, long high)
+    {
+        if (low < high)
+        {
+            long partitionIndex = Partition(arr, low, high);
+
+            QuickSort(arr, low, partitionIndex - 1);
+            QuickSort(arr, partitionIndex + 1, high);
+        }
+    }
+
+    static long Partition(long[] arr, long low, long high)
+    {
+        long pivot = arr[high];
+        long i = low - 1;
+
+        for (long j = low; j < high; j++)
+        {
+            if (arr[j] < pivot)
+            {
+                i++;
+
+                // Swap arr[i] and arr[j]
+                long temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // Swap arr[i+1] and arr[high] (or pivot)
+        long temp1 = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp1;
+
+        return i + 1;
+    }
+}
+
 class TextFileParser
 {
     public static string[][][] ParseFile(string filePath, string delimiter)
@@ -173,42 +213,3 @@ class DataStructure
     }
 }
 
-public class Tools{
-
-    public static void QuickSort(int[] arr, int low, int high)
-    {
-        if (low < high)
-        {
-            int partitionIndex = Partition(arr, low, high);
-
-            QuickSort(arr, low, partitionIndex - 1);
-            QuickSort(arr, partitionIndex + 1, high);
-        }
-    }
-
-    static int Partition(int[] arr, int low, int high)
-    {
-        int pivot = arr[high];
-        int i = low - 1;
-
-        for (int j = low; j < high; j++)
-        {
-            if (arr[j] < pivot)
-            {
-                i++;
-
-                // Swap arr[i] and arr[j]
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-
-        // Swap arr[i+1] and arr[high] (or pivot)
-        int temp1 = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp1;
-
-        return i + 1;
-    }
-}
