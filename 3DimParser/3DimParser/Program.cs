@@ -5,13 +5,18 @@ using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Xml;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 class Programm
 {
+    // Activate examples 
+    static bool activeExample = false;
+
     // Write your solution here. Return any type you want. 
     public static object? GetSolution(string[] lines, string[][][] parsedData3Dim, string[] parsedDataReplcaChar) // You don't have to use everything 
     {
-        return null;
+        return "";
     }
 
     [STAThread]
@@ -20,11 +25,15 @@ class Programm
         // Pfad zur Textdatei
         string filePath = @"..\..\..\..\..\files\input.txt";
 
+        // Pfad zum .json file
+        string jsonFilePath = @"..\..\..\..\..\files\examples.json";
+        string jsonContent = File.ReadAllText(jsonFilePath);
+
         // Optional: Definieren Sie ein Trennzeichen
         string delimiter = " "; // Beispiel für ein Komma als Trennzeichen
 
         // Den Parser aufrufen und das Ergebnis erhalten
-        string[] lines = File.ReadAllLines(filePath);
+        string[] lines = activeExample ? GetFirstStringElement(jsonContent).Split('\n') : File.ReadAllLines(filePath);
         string[][][] parsedData3Dim = TextFileParser.ParseFile(filePath, delimiter);
         string[] parsedDataReplcaChar = ReplaceCharacterParser.Parser(filePath);
         //int[,,] parsedDataBinary = ByteParser.ParseInputFile(filePath, 1000, 1000);
@@ -44,6 +53,32 @@ class Programm
         // Die Lösung in die Zwischenablage kopieren
         Clipboard.SetText(solution.ToString());
         Console.WriteLine("Copied solution to clipboard.");
+    }
+
+    public static string GetFirstStringElement(string jsonContent)
+    {
+        JsonDocument jsonDocument = JsonDocument.Parse(jsonContent);
+        JsonElement rootElement = jsonDocument.RootElement;
+
+        if (rootElement.ValueKind == JsonValueKind.Array)
+        {
+            JsonElement firstElement = rootElement.EnumerateArray().FirstOrDefault();
+
+            if (firstElement.ValueKind == JsonValueKind.String)
+            {
+                return firstElement.GetString();
+            }
+            else
+            {
+                Console.WriteLine("first element is not a string.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("JSON parsing failed");
+        }
+
+        return "";
     }
 }
 
