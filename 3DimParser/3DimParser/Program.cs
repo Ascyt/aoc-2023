@@ -7,16 +7,115 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Numerics;
 
 class Programm
 {
     // Activate examples 
-    static bool activeExample = false;
+    static bool activeExample = true;
 
     // Write your solution here. Return any type you want. 
-    public static object? GetSolution(string[] lines, string[][][] parsedData3Dim, string[] parsedDataReplcaChar) // You don't have to use everything 
+    public static object? GetSolution(string[] a, string[][][] parsedData3Dim, string[] parsedDataReplcaChar) // You don't have to use everything 
     {
-        return "";
+        Array.Resize(ref a, a.Length - 1);
+
+        int dirs = 4;
+        int[] dRow = { -1, 0, +1, 0 };
+        int[] dCol = { 0, +1, 0, -1 };
+        char[] dName = { '^', '>', 'v', '<' };
+
+        int rows = a.Length;
+        int cols = a[0].Length;
+
+        var special = new Dictionary<(int, int), int>();
+        var specialList = new List<(int, int)>();
+        int n = 0;
+
+        void addToList(int row, int col)
+        {
+            var cur = (row, col);
+            specialList.Add(cur);
+            special[cur] = n++;
+        }
+
+        addToList(0, 1);
+        addToList(rows - 1, cols - 2);
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < cols; col++)
+            {
+                if (a[row][col] == '#')
+                    continue;
+                int num = 0;
+                for (int dir = 0; dir < dirs; dir++)
+                {
+                    int nRow = row + dRow[dir];
+                    int nCol = col + dCol[dir];
+                    if (0 <= nRow && nRow < rows &&
+                        0 <= nCol && nCol < cols &&
+                        dName.Contains(a[nRow][nCol]))
+                        num += 1;
+                }
+                if (num > 1)
+                    addToList(row, col);
+            }
+        }
+
+        var adj = new List<(int, int)>[n];
+        for (int i = 0; i < n; i++)
+        {
+            adj[i] = new List<(int, int)>();
+            var d = new int[rows, cols];
+            var q = new Queue<(int, int)>();
+
+            void add(int row, int col, int dist)
+            {
+                d[row, col] = dist;
+                q.Enqueue((row, col));
+            }
+
+            add(specialList[i].Item1, specialList[i].Item2, 1);
+            while (q.Count > 0)
+            {
+                var cur = q.Dequeue();
+                int dist = d[cur.Item1, cur.Item2];
+                if (special.ContainsKey(cur) && special[cur] != i)
+                {
+                    adj[i].Add((special[cur], dist - 1));
+                    continue;
+                }
+                for (int dir = 0; dir < dirs; dir++)
+                {
+                    int nRow = cur.Item1 + dRow[dir];
+                    int nCol = cur.Item2 + dCol[dir];
+                    if (0 <= nRow && nRow < rows &&
+                        0 <= nCol && nCol < cols &&
+                        a[nRow][nCol] != '#' &&
+                        d[nRow, nCol] == 0)
+                        add(nRow, nCol, dist + 1);
+                }
+            }
+        }
+
+        int res = 0;
+        var used = new bool[n];
+
+        void recur(int u, int d)
+        {
+            if (u == 1)
+            {
+                res = Math.Max(res, d);
+                return;
+            }
+            used[u] = true;
+            foreach (var e in adj[u])
+                if (!used[e.Item1])
+                    recur(e.Item1, d + e.Item2);
+            used[u] = false;
+        }
+
+        recur(0, 0);
+        return res;
     }
 
     [STAThread]
